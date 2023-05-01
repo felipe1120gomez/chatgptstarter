@@ -4,7 +4,7 @@ import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
 import { createPineconeIndex } from '@/utils/pinecone-client';
 import { PINECONE_NAME_SPACE } from '@/config/pinecone';
 import { PineconeStore } from 'langchain/vectorstores/pinecone';
-import { extractTextFromWebsiteUrl } from '@/utils/extractTextFromWebsiteUrl';
+import { extractTextFromWebsiteUrl } from '@/utils/cheerioScraper';
 
 export default async function handler(
   req: NextApiRequest,
@@ -30,6 +30,8 @@ export default async function handler(
 
     const docs = await textSplitter.splitDocuments(rawDocs);
 
+    console.log('splited');
+
     // /*create and store the embeddings in the vectorStore*/
     const embeddings = new OpenAIEmbeddings({
       openAIApiKey: credentials.openaiApiKey,
@@ -46,6 +48,8 @@ export default async function handler(
       namespace: PINECONE_NAME_SPACE,
       textKey: 'text',
     });
+
+    console.log('stored');
 
     res.status(200).json({ rawDocs });
   } catch (e: any) {

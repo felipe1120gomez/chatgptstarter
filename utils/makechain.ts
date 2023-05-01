@@ -10,9 +10,8 @@ Follow Up Input: {question}
 Standalone question:`;
 
 // change to your own 'system' prompt
-const QA_PROMPT = `You are an AI assistant providing helpful advice. Use the following pieces of context to answer the question at the end.
-If you don't know the answer based on the context below, just say "Hmm, I'm not sure." DO NOT try to make up an answer.
-If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
+const QA_PROMPT = `You are an AI assistant. Use the following pieces of context as help to do what is asked in the question at the end.
+Give the answer in Spanish. Take into account the chat_history to answer only in case the question can be related to this. If you do not find information in the context, answer that the context has not been useful.
 
 {context}
 
