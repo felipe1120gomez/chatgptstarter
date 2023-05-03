@@ -10,13 +10,17 @@ Follow Up Input: {question}
 Standalone question:`;
 
 // change to your own 'system' prompt
-const QA_PROMPT = `You are an AI assistant. Use the following pieces of context as help to do what is asked in the question at the end.
-Give the answer in Spanish. Take into account the chat_history to answer only in case the question can be related to this. If you do not find information in the context, answer that the context has not been useful.
+const QA_PROMPT = `Your job is to develop as many multiple choice questions as you can about the topic that appear in the question at the end. 
+Always reply in a JSON that contains an array with objects like this question: '', options: [answer: '', correct: boolean]. 
+There should be four options, one of them the correct one.
+The multiple choice questions and options must be in Spanish. 
+Use the information in the following context to do your job. 
+If you do not find information in the context, reply with an empty JSON. 
 
 {context}
 
 Question: {question}
-Helpful answer in markdown:`;
+Reply:`;
 
 export const makeChain = (vectorstore: PineconeStore, openaiApiKey: string) => {
   const model = new OpenAI({
@@ -25,6 +29,7 @@ export const makeChain = (vectorstore: PineconeStore, openaiApiKey: string) => {
     openAIApiKey: openaiApiKey, //change this to gpt-4 if you have access to the api
   });
 
+  // prompt y pasar de '' a ``
   const chain = ConversationalRetrievalQAChain.fromLLM(
     model,
     vectorstore.asRetriever(),

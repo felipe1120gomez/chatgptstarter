@@ -9,7 +9,16 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const { question, history, credentials } = req.body;
+  const { question, history, credentials } = req.body; // agregar prompt, y namespace - quitar credentials
+
+  console.log(req.body);
+
+  /* {
+    question: '<Suspense>',
+    prompt: '',
+    namespace: '',
+    history: []
+  } */
 
   //only accept post requests
   if (req.method !== 'POST') {
@@ -24,7 +33,7 @@ export default async function handler(
     const index = await createPineconeIndex({
       pineconeApiKey: credentials.pineconeApiKey,
       pineconeEnvironment: credentials.pineconeEnvironment,
-      pineconeIndexName: credentials.pineconeIndex,
+      pineconeIndexName: credentials.pineconeIndex, //process.env.PINECONE_INDEX_NAME ?? ''
     });
 
     /* create vectorstore*/
@@ -40,7 +49,7 @@ export default async function handler(
     );
 
     //create chain
-    const chain = makeChain(vectorStore, credentials.openaiApiKey);
+    const chain = makeChain(vectorStore, credentials.openaiApiKey); // pasar el prompt
     //Ask a question
     const response = await chain.call({
       question: sanitizedQuestion,
