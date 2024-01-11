@@ -22,19 +22,23 @@ If you do not find information in the context, reply with an empty JSON.
 Question: {question}
 Reply:`;
 
-export const makeChain = (vectorstore: PineconeStore, openaiApiKey: string) => {
+export const makeChain = (
+  vectorstore: PineconeStore,
+  prompt: string,
+  temperature: number,
+  modelName: string,
+) => {
   const model = new OpenAI({
-    temperature: 0.7, // increase temepreature to get more creative answers
-    modelName: 'gpt-3.5-turbo',
-    openAIApiKey: openaiApiKey, //change this to gpt-4 if you have access to the api
+    temperature: temperature, // increase temepreature to get more creative answers
+    modelName: modelName, //change this to gpt-4 if you have access to the api
+    openAIApiKey: process.env.OPENAI_API_KEY,
   });
 
-  // prompt y pasar de '' a ``
   const chain = ConversationalRetrievalQAChain.fromLLM(
     model,
     vectorstore.asRetriever(),
     {
-      qaTemplate: QA_PROMPT,
+      qaTemplate: prompt,
       questionGeneratorTemplate: CONDENSE_PROMPT,
       returnSourceDocuments: true, //The number of source documents returned is 4 by default
     },

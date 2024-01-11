@@ -4,7 +4,7 @@ import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
 import { createPineconeIndex } from '@/utils/pinecone-client';
 import { PINECONE_NAME_SPACE } from '@/config/pinecone';
 import { PineconeStore } from 'langchain/vectorstores/pinecone';
-import { extractTextFromWebsiteUrl } from '@/utils/cheerioScraper';
+import { extractTextFromWebsiteUrl } from '@/utils/cheerioPdfScraper';
 
 export default async function handler(
   req: NextApiRequest,

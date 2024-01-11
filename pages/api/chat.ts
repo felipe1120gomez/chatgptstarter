@@ -9,13 +9,16 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const { question, history, credentials } = req.body; // agregar prompt, y namespace - quitar credentials
+  const { question, prompt, temperature, modelName, namespace, history } =
+    req.body;
 
   console.log(req.body);
 
   /* {
-    question: '<Suspense>',
+    question: '',
     prompt: '',
+    temperature: 0.7,
+    modelName: '',
     namespace: '',
     history: []
   } */
@@ -31,25 +34,25 @@ export default async function handler(
 
   try {
     const index = await createPineconeIndex({
-      pineconeApiKey: credentials.pineconeApiKey,
-      pineconeEnvironment: credentials.pineconeEnvironment,
-      pineconeIndexName: credentials.pineconeIndex, //process.env.PINECONE_INDEX_NAME ?? ''
+      pineconeApiKey: process.env.PINECONE_API_KEY ?? '',
+      pineconeEnvironment: process.env.PINECONE_ENVIRONMENT,
+      pineconeIndexName: process.env.PINECONE_INDEX_NAME ?? '',
     });
 
     /* create vectorstore*/
     const vectorStore = await PineconeStore.fromExistingIndex(
       new OpenAIEmbeddings({
-        openAIApiKey: credentials.openaiApiKey,
+        openAIApiKey: process.env.OPENAI_API_KEY,
       }),
       {
         pineconeIndex: index,
         textKey: 'text',
-        namespace: PINECONE_NAME_SPACE,
+        namespace: namespace, //PINECONE_NAME_SPACE
       },
     );
 
     //create chain
-    const chain = makeChain(vectorStore, credentials.openaiApiKey); // pasar el prompt
+    const chain = makeChain(vectorStore, prompt, temperature, modelName);
     //Ask a question
     const response = await chain.call({
       question: sanitizedQuestion,
@@ -57,7 +60,9 @@ export default async function handler(
     });
 
     console.log('response', response);
-    res.status(200).json(response);
+    // sourceDocuments no se devuelve en la respuesta
+    const responseObj = JSON.parse(response.text);
+    res.status(200).json(responseObj);
   } catch (error: any) {
     console.log('error', error);
     res.status(500).json({ error: error.message || 'Something went wrong' });

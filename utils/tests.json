@@ -1,0 +1,404 @@
+[
+  {
+    "questions": [
+      {
+        "question": "¿Qué es useId?",
+        "options": [
+          {
+            "answer": "Una función de JavaScript",
+            "correct": false
+          },
+          {
+            "answer": "Un Hook de React",
+            "correct": true
+          },
+          {
+            "answer": "Una propiedad de un componente de React",
+            "correct": false
+          },
+          {
+            "answer": "Una variable global de JavaScript",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Dónde se puede llamar a useId?",
+        "options": [
+          {
+            "answer": "Dentro de un loop en un componente de React",
+            "correct": false
+          },
+          {
+            "answer": "Dentro de una condición en un componente de React",
+            "correct": false
+          },
+          {
+            "answer": "Solo en el nivel superior de un componente de React o en otros Hooks personalizados",
+            "correct": true
+          },
+          {
+            "answer": "En cualquier lugar dentro de un componente de React",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Para qué se recomienda usar useId?",
+        "options": [
+          {
+            "answer": "Para generar claves en una lista",
+            "correct": false
+          },
+          {
+            "answer": "Para generar identificadores únicos para elementos de accesibilidad",
+            "correct": true
+          },
+          {
+            "answer": "Para generar identificadores comunes para varios elementos relacionados",
+            "correct": false
+          },
+          {
+            "answer": "Para generar identificadores aleatorios para elementos de un componente de React",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Por qué no se recomienda codificar IDs en un componente de React?",
+        "options": [
+          {
+            "answer": "Porque los IDs no son necesarios en un componente de React",
+            "correct": false
+          },
+          {
+            "answer": "Porque un componente puede renderizarse más de una vez en la página y los IDs deben ser únicos",
+            "correct": true
+          },
+          {
+            "answer": "Porque generar IDs con useId es más fácil y eficiente",
+            "correct": false
+          },
+          {
+            "answer": "Porque codificar IDs puede causar errores en el código",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "questions": [
+      {
+        "question": "¿Cuál es el beneficio principal de usar useId en lugar de un contador incrementable?",
+        "options": [
+          {
+            "answer": "useId asegura que funciona con el renderizado en el servidor",
+            "correct": true
+          },
+          {
+            "answer": "El contador incrementable es más rápido",
+            "correct": false
+          },
+          {
+            "answer": "No hay diferencia entre ambos",
+            "correct": false
+          },
+          {
+            "answer": "useId no funciona correctamente con el renderizado en el servidor",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Cómo genera useId los IDs únicos?",
+        "options": [
+          {
+            "answer": "A partir de la ruta del componente padre",
+            "correct": true
+          },
+          {
+            "answer": "De forma aleatoria",
+            "correct": false
+          },
+          {
+            "answer": "A partir del orden de renderizado",
+            "correct": false
+          },
+          {
+            "answer": "No se especifica en el contexto",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Qué problema puede haber al usar un contador incrementable para generar IDs?",
+        "options": [
+          {
+            "answer": "Puede haber problemas con el renderizado en el servidor",
+            "correct": true
+          },
+          {
+            "answer": "Los IDs generados pueden no ser únicos",
+            "correct": false
+          },
+          {
+            "answer": "El contador puede desbordarse",
+            "correct": false
+          },
+          {
+            "answer": "No hay problema alguno al usar un contador incrementable",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Por qué es importante que el output del cliente coincida con el HTML generado en el servidor?",
+        "options": [
+          {
+            "answer": "Porque de ello depende que la hidratación funcione correctamente",
+            "correct": true
+          },
+          {
+            "answer": "No es importante",
+            "correct": false
+          },
+          {
+            "answer": "Porque el HTML generado en el servidor puede ser incorrecto",
+            "correct": false
+          },
+          {
+            "answer": "Porque el output del cliente no debe coincidir con el HTML generado en el servidor",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "questions": [
+      {
+        "question": "¿Qué es useId y por qué se recomienda usarlo en lugar de codificar IDs en un componente de React?",
+        "options": [
+          {
+            "answer": "Es una función que genera un ID único para un componente de React y se recomienda usarlo porque garantiza que la hidratación funcionará correctamente.",
+            "correct": true
+          },
+          {
+            "answer": "Es una variable global que se incrementa con cada nuevo componente de React y se recomienda usarlo porque es más fácil de implementar.",
+            "correct": false
+          },
+          {
+            "answer": "Es una propiedad de un componente de React que permite especificar un ID personalizado y se recomienda usarlo porque es más fácil de leer y entender.",
+            "correct": false
+          },
+          {
+            "answer": "Es una función que genera un ID único para un componente de React y se recomienda usarlo porque mejora el rendimiento de la aplicación.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Cuál es el beneficio principal de usar useId en lugar de un contador incrementable para generar IDs?",
+        "options": [
+          {
+            "answer": "Que React garantiza que funcionará correctamente con el renderizado del lado del servidor y la hidratación del lado del cliente.",
+            "correct": true
+          },
+          {
+            "answer": "Que es más fácil de implementar y leer que un contador incrementable.",
+            "correct": false
+          },
+          {
+            "answer": "Que mejora el rendimiento de la aplicación al generar IDs más eficientemente.",
+            "correct": false
+          },
+          {
+            "answer": "Que permite especificar un ID personalizado para un componente de React.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Por qué es difícil garantizar que los IDs generados por un contador incrementable coincidan entre el renderizado del lado del servidor y la hidratación del lado del cliente?",
+        "options": [
+          {
+            "answer": "Porque el orden en que se hidratan los componentes en el lado del cliente puede no coincidir con el orden en que se generaron en el lado del servidor.",
+            "correct": true
+          },
+          {
+            "answer": "Porque los IDs generados por un contador incrementable no son únicos y pueden llevar a errores en la aplicación.",
+            "correct": false
+          },
+          {
+            "answer": "Porque los IDs generados por un contador incrementable son difíciles de leer y entender en el código.",
+            "correct": false
+          },
+          {
+            "answer": "No se menciona en el contexto.",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "questions": [
+      {
+        "question": "¿Cuál es la ventaja principal de usar useId en lugar de un contador incrementable?",
+        "options": [
+          {
+            "answer": "Garantiza que la hidratación funcione correctamente entre el servidor y el cliente.",
+            "correct": true
+          },
+          {
+            "answer": "Permite generar IDs únicos para cada instancia de un componente.",
+            "correct": false
+          },
+          {
+            "answer": "Simplifica la generación de HTML en el servidor.",
+            "correct": false
+          },
+          {
+            "answer": "Asegura que los controladores de eventos estén correctamente asociados a los elementos HTML generados.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Por qué es difícil garantizar que el orden de los componentes en el cliente coincida con el del servidor al usar un contador incrementable?",
+        "options": [
+          {
+            "answer": "Porque el servidor y el cliente pueden generar los componentes en un orden diferente.",
+            "correct": true
+          },
+          {
+            "answer": "Porque el contador incrementable no funciona correctamente en el cliente.",
+            "correct": false
+          },
+          {
+            "answer": "Porque el contador incrementable no es compatible con la hidratación en el servidor.",
+            "correct": false
+          },
+          {
+            "answer": "Porque el orden de los componentes no es importante en React.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Cómo se genera el ID único en useId?",
+        "options": [
+          {
+            "answer": "A partir del orden de renderización de los componentes en el servidor y el cliente.",
+            "correct": false
+          },
+          {
+            "answer": "A partir de la ruta del componente que llama a useId.",
+            "correct": true
+          },
+          {
+            "answer": "A partir de un contador de IDs global en la aplicación.",
+            "correct": false
+          },
+          {
+            "answer": "A partir de un prefijo compartido por todos los componentes relacionados.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Por qué no es recomendable codificar IDs de forma rígida en un componente de React?",
+        "options": [
+          {
+            "answer": "Porque un componente puede ser renderizado varias veces en la página y los IDs deben ser únicos.",
+            "correct": true
+          },
+          {
+            "answer": "Porque los IDs no son necesarios en React.",
+            "correct": false
+          },
+          {
+            "answer": "Porque los IDs deben ser siempre iguales en el servidor y el cliente.",
+            "correct": false
+          },
+          {
+            "answer": "Porque los IDs no se pueden utilizar para hidratar los componentes en el cliente.",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "questions": [
+      {
+        "question": "¿Qué permite hacer el hook useId en React?",
+        "options": [
+          {
+            "answer": "Personalizar la etiqueta que muestra React DevTools para un Hook personalizado.",
+            "correct": false
+          },
+          {
+            "answer": "Asociar un ID único a un componente para mejorar su accesibilidad.",
+            "correct": true
+          },
+          {
+            "answer": "Suscribir un componente a una tienda externa.",
+            "correct": false
+          },
+          {
+            "answer": "Generar claves para elementos en una lista.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Dónde se puede llamar al hook useId dentro de un componente?",
+        "options": [
+          {
+            "answer": "Dentro de un bucle.",
+            "correct": false
+          },
+          {
+            "answer": "Dentro de una condición.",
+            "correct": false
+          },
+          {
+            "answer": "Solo en el nivel superior del componente o de Hooks personalizados.",
+            "correct": true
+          },
+          {
+            "answer": "En cualquier parte del componente.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "question": "¿Cuál es una situación en la que no se debería usar useId?",
+        "options": [
+          {
+            "answer": "Cuando se necesita generar claves para elementos en una lista.",
+            "correct": true
+          },
+          {
+            "answer": "Cuando se quiere mejorar la accesibilidad de un componente.",
+            "correct": false
+          },
+          {
+            "answer": "Cuando se quiere asegurar que la hidratación del componente funcione correctamente.",
+            "correct": false
+          },
+          {
+            "answer": "Cuando se quiere generar IDs únicos para varios elementos relacionados.",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  }
+]
